@@ -1,0 +1,33 @@
+{
+  "services": [
+    {
+      "name": "Internet",
+      "basePrice": [39, 49, 59]
+    },
+    {
+      "name": "TV Service",
+      "basePrice": [49, 49, 59]
+    },
+    {
+      "name": "Phone Subscription",
+      "basePrice": [29, 29, 29]
+    },
+    {
+      "name": "4K Decoder",
+      "basePrice": [29, 29, 29],
+      "requiredService": "TV Service"
+    }
+  ],
+  "packages": [
+    {
+      "name": "Internet + TV",
+      "basePrice": [79, 89, 99],
+      "services": ["Internet", "TV Service"]
+    },
+    {
+      "name": "Internet + Phone Subscription",
+      "basePrice": [64, 64, 64],
+      "services": ["Internet", "Phone Subscription"]
+    }
+  ]
+}
