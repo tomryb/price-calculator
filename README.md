@@ -1,5 +1,4 @@
 # Service Price Calculator
-przejrzeć apke
 
 Welcome to the Service Price Calculator! This is a simple React application that allows users to calculate the cost of services and packages based on their selections.
 

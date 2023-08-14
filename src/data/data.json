@@ -14,8 +14,7 @@
     },
     {
       "name": "4K Decoder",
-      "basePrice": [29, 29, 29],
-      "requiredService": "TV Service"
+      "basePrice": [29, 29, 29]
     }
   ],
   "packages": [
