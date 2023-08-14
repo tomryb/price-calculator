@@ -23,7 +23,7 @@ const Calculator: React.FC = () => {
   const appContext = useAppContext();
 
   if (!appContext) {
-    alert('App context not available.');
+    console.error('App context not available.');
     return null;
   }
 
@@ -39,16 +39,23 @@ const Calculator: React.FC = () => {
   const isInternetTvPackageSelected = selectedPackages.includes(INTERNET_TV_PACKAGE);
 
   const handleServiceSelect = (serviceName: string) => {
-    if (serviceName === DECODER_SERVICE) {
+    if (serviceName === TV_SERVICE) {
+      if (selectedServices.includes(TV_SERVICE)) {
+        setSelectedServices(selectedServices.filter((service: string) => service !== TV_SERVICE && service !== DECODER_SERVICE));
+      }
+      else if (selectedServices.includes(DECODER_SERVICE)) {
+        setSelectedServices([...selectedServices, TV_SERVICE]);
+      }
+      else {
+        setSelectedServices([...selectedServices, TV_SERVICE, DECODER_SERVICE]);
+      }
+    } else if (serviceName === DECODER_SERVICE) {
       if (selectedServices.includes(DECODER_SERVICE)) {
         setSelectedServices(selectedServices.filter((service: string) => service !== DECODER_SERVICE));
       } else {
         setSelectedServices([...selectedServices, DECODER_SERVICE]);
       }
     } else {
-      if (serviceName === TV_SERVICE && selectedServices.includes(DECODER_SERVICE)) {
-        setSelectedServices(selectedServices.filter((service: string) => service !== DECODER_SERVICE));
-      }
       if (selectedServices.includes(serviceName)) {
         setSelectedServices(selectedServices.filter((service: string) => service !== serviceName));
       } else {
